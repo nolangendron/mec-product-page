@@ -2,8 +2,15 @@
 
 exports[`should take a snapshot of SearchInput 1`] = `
 <DocumentFragment>
-  <div>
-    Search Input
+  <div
+    class="css-0"
+  >
+    <form>
+      <input
+        placeholder="Search for product"
+        value=""
+      />
+    </form>
   </div>
 </DocumentFragment>
 `;

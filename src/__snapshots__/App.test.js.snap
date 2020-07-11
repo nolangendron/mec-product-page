@@ -2,8 +2,16 @@
 
 exports[`should take a snapshot of App 1`] = `
 <DocumentFragment>
-  <div>
-    Landing Page
+  <div
+    class="css-0"
+  >
+    <form>
+      <input
+        placeholder="Search for product"
+        value=""
+      />
+    </form>
   </div>
+  <section />
 </DocumentFragment>
 `;
