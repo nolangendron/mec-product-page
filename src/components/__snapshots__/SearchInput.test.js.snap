@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should take a snapshot of LandingPage 1`] = `
+exports[`should take a snapshot of SearchInput 1`] = `
 <DocumentFragment>
   <div>
-    Landing Page
+    Search Input
   </div>
 </DocumentFragment>
 `;
