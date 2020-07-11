@@ -1,41 +1,49 @@
-import React, { useState } from "react";
-import styled from "@emotion/styled";
+import React, { useState } from 'react'
+import styled from '@emotion/styled'
+import TextField from '@material-ui/core/TextField'
 
-const SearchInputStyles = styled("div")``;
+const SearchInputStyles = styled('div')``
 
 export const SearchInput = ({ handleSearch }) => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [persistedSearchQuery, setPersistedSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('')
+  const [persistedSearchQuery, setPersistedSearchQuery] = useState('')
 
   const handleQueryChange = (e) => {
-    const value = e.target.value;
-    setSearchQuery(value);
-  };
+    const value = e.target.value
+    setSearchQuery(value)
+  }
 
   const handlePersistQuery = (name) => {
-    setPersistedSearchQuery(name);
-  };
+    setPersistedSearchQuery(name)
+  }
 
   const handleOnFocus = () => {
-    setPersistedSearchQuery("");
-  };
+    setPersistedSearchQuery('')
+  }
 
   const handleResetSearchQuery = (e) => {
-    setSearchQuery("");
-  };
+    setSearchQuery('')
+  }
 
   return (
     <SearchInputStyles>
       <form onSubmit={(e) => handleSearch(e, searchQuery)}>
-        <input
+        <TextField
+          id="outlined-full-width"
+          label="Search"
+          style={{ margin: 8 }}
+          placeholder={
+            persistedSearchQuery ? persistedSearchQuery : 'Search for product'
+          }
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
           onChange={(e) => handleQueryChange(e)}
           value={searchQuery}
-          placeholder={
-            persistedSearchQuery ? persistedSearchQuery : "Search for product"
-          }
-          onFocus={handleOnFocus}
         />
       </form>
     </SearchInputStyles>
-  );
-};
+  )
+}
