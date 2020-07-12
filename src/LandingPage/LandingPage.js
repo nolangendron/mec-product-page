@@ -1,13 +1,20 @@
 import React, { useState, Fragment } from 'react'
-import { Header } from '../components/Header'
-import { SearchDetails } from '../components/SearchDetails'
-import { ProductsList } from '../components/ProductsList'
+import { Header, SearchDetails, ProductsList, Pagination } from '../components'
 import { makeApiCall } from '../utils/apiCall'
 
 export const LandingPage = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [currentSearch, setCurrentSearch] = useState('')
   const [products, setProducts] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [productsPerPage] = useState(12)
+
+  const indexOfLastProduct = currentPage * productsPerPage
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  )
 
   const handleQueryChange = (e) => {
     const value = e.target.value
@@ -21,8 +28,16 @@ export const LandingPage = () => {
       const { products } = data
       console.log(data)
       setProducts(products)
+      setCurrentPage(1)
       setCurrentSearch(searchQuery)
     })
+  }
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  const paginateArrow = (arrow) => {
+    arrow === 'forward'
+      ? setCurrentPage((prevState) => prevState + 1)
+      : setCurrentPage((prevState) => prevState - 1)
   }
 
   return (
@@ -36,7 +51,16 @@ export const LandingPage = () => {
         currentSearch={currentSearch}
         numberOfProducts={products.length}
       />
-      <ProductsList products={products} />
+      <ProductsList products={currentProducts} />
+      {products.length > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          paginateArrow={paginateArrow}
+          paginate={paginate}
+          productPerPage={productsPerPage}
+          totalProducts={products.length}
+        />
+      )}
     </Fragment>
   )
 }
