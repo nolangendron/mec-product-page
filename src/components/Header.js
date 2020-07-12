@@ -19,11 +19,15 @@ const HeaderStyles = styled('header')`
     width: 50px;
   }
 `
-export const Header = ({ handleSearch }) => {
+export const Header = ({ searchQuery, handleQueryChange, handleSearch }) => {
   return (
     <HeaderStyles>
       <img className="flex-item logo" src={logo} alt="MEC logo" />
-      <SearchInput handleSearch={handleSearch} />
+      <SearchInput
+        searchQuery={searchQuery}
+        handleQueryChange={handleQueryChange}
+        handleSearch={handleSearch}
+      />
     </HeaderStyles>
   )
 }

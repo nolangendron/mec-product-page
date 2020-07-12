@@ -16,9 +16,16 @@ export const ProductsList = ({ products }) => {
   return (
     <Section>
       {products.map((product, index) => {
-        const { name, default_image_urls } = product
+        const { name, default_image_urls, product_url } = product
         const { main_image_url } = default_image_urls
-        return <ProductItem key={index} name={name} img={main_image_url} />
+        return (
+          <ProductItem
+            key={index}
+            name={name}
+            img={main_image_url}
+            product_url={product_url}
+          />
+        )
       })}
     </Section>
   )
