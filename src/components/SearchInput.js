@@ -20,6 +20,7 @@ const styles = {
   },
   label: {
     color: 'white',
+    'padding-left': '10px',
   },
 }
 
