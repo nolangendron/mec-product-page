@@ -1,8 +1,5 @@
 import React, { useState, Fragment } from 'react'
-import { Header } from '../components/Header'
-import { SearchDetails } from '../components/SearchDetails'
-import { ProductsList } from '../components/ProductsList'
-import { Pagination } from '../components/Pagination'
+import { Header, SearchDetails, ProductsList, Pagination } from '../components'
 import { makeApiCall } from '../utils/apiCall'
 
 export const LandingPage = () => {
@@ -36,6 +33,12 @@ export const LandingPage = () => {
   }
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  const paginateArrow = (arrow) => {
+    arrow === 'forward'
+      ? setCurrentPage((prevState) => prevState + 1)
+      : setCurrentPage((prevState) => prevState - 1)
+  }
+
   return (
     <Fragment>
       <Header
@@ -48,11 +51,14 @@ export const LandingPage = () => {
         numberOfProducts={products.length}
       />
       <ProductsList products={currentProducts} />
-      <Pagination
-        paginate={paginate}
-        productPerPage={productsPerPage}
-        totalProducts={products.length}
-      />
+      {products.length > 0 && (
+        <Pagination
+          paginateArrow={paginateArrow}
+          paginate={paginate}
+          productPerPage={productsPerPage}
+          totalProducts={products.length}
+        />
+      )}
     </Fragment>
   )
 }

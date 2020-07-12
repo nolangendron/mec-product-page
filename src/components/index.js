@@ -1,0 +1,6 @@
+export { Header } from './Header'
+export { Pagination } from './Pagination'
+export { ProductItem } from './ProductItem'
+export { ProductsList } from './ProductsList'
+export { SearchDetails } from './SearchDetails'
+export { default as SearchInput } from './SearchInput'
