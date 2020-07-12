@@ -21,30 +21,15 @@ const styles = {
   },
 }
 
-const SearchInput = ({ handleSearch, classes }) => {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [persistedSearchQuery, setPersistedSearchQuery] = useState('')
-
-  const handleQueryChange = (e) => {
-    const value = e.target.value
-    setSearchQuery(value)
-  }
-
-  const handlePersistQuery = (name) => {
-    setPersistedSearchQuery(name)
-  }
-
-  const handleOnFocus = () => {
-    setPersistedSearchQuery('')
-  }
-
-  const handleResetSearchQuery = (e) => {
-    setSearchQuery('')
-  }
-
+const SearchInput = ({
+  searchQuery,
+  handleQueryChange,
+  handleSearch,
+  classes,
+}) => {
   return (
     <SearchInputStyles>
-      <form onSubmit={(e) => handleSearch(e, searchQuery)}>
+      <form onSubmit={handleSearch}>
         <TextField
           className={classes.root}
           InputLabelProps={{
@@ -54,7 +39,7 @@ const SearchInput = ({ handleSearch, classes }) => {
           }}
           id="standard-basic"
           label="I'm looking for"
-          onChange={(e) => handleQueryChange(e)}
+          onChange={handleQueryChange}
           value={searchQuery}
         />
       </form>

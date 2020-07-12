@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
 })
 
-export const ProductItem = ({ name, img }) => {
+export const ProductItem = ({ name, img, product_url }) => {
   const classes = useStyles()
 
   return (
