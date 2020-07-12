@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot of LandingPage 1`] = `
+<DocumentFragment>
+  <header
+    class="css-1u8elbe"
+  >
+    <img
+      alt="MEC logo"
+      class="flex-item logo"
+      src="mec-logo.svg.png"
+    />
+    <div
+      class="css-1lo72dc"
+    >
+      <form>
+        <div
+          class="MuiFormControl-root MuiTextField-root SearchInput-root-1"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root SearchInput-label-2 MuiInputLabel-formControl MuiInputLabel-animated"
+            data-shrink="false"
+            for="standard-basic"
+            id="standard-basic-label"
+          >
+            I'm looking for
+          </label>
+          <div
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiInput-input"
+              id="standard-basic"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </header>
+  <div
+    class="css-xf7pps"
+  />
+  <section
+    class="css-5vjz5q"
+  />
+</DocumentFragment>
+`;
