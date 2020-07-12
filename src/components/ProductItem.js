@@ -22,7 +22,6 @@ const useStyles = makeStyles({
 
 export const ProductItem = ({ name, img, web_url }) => {
   const classes = useStyles()
-  console.log(web_url)
   return (
     <Card className={classes.root}>
       <Link href={web_url} target="_blank" rel="noopener">
