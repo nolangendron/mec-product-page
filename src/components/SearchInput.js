@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import TextField from '@material-ui/core/TextField'
 import { withStyles } from '@material-ui/core/styles'
 
 const SearchInputStyles = styled('div')`
   height: 50px;
+  width: 100%;
   margin: 1em;
   margin-left: 0;
 `
@@ -14,7 +15,8 @@ const styles = {
       color: 'white',
     },
     background: '#333',
-    width: 400,
+    width: '40%',
+    minWidth: '200px',
   },
   label: {
     color: 'white',

@@ -28,6 +28,7 @@ export const LandingPage = () => {
       const { products } = data
       console.log(data)
       setProducts(products)
+      setCurrentPage(1)
       setCurrentSearch(searchQuery)
     })
   }
@@ -53,6 +54,7 @@ export const LandingPage = () => {
       <ProductsList products={currentProducts} />
       {products.length > 0 && (
         <Pagination
+          currentPage={currentPage}
           paginateArrow={paginateArrow}
           paginate={paginate}
           productPerPage={productsPerPage}

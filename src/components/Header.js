@@ -8,6 +8,7 @@ const HeaderStyles = styled('header')`
   flex-direction: row;
   background-color: #191919;
   height: 80px;
+  width: 100%;
   align-items: center;
 
   .flex-item {

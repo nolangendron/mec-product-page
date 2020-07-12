@@ -7,15 +7,22 @@ const PaginationStyles = styled('nav')`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: 1em;
 
   .page-button {
+    width: 40px;
     margin: 5px;
     padding: 10px;
     border: none;
+    background: lightgray;
     :hover {
       cursor: pointer;
-      background: grey;
+      background: gray;
     }
+  }
+
+  .active {
+    background: gray;
   }
 `
 
@@ -23,46 +30,54 @@ const useStyles = makeStyles({
   root: {
     margin: '5px',
     padding: '10px',
-    background: 'lightgrey',
+    background: 'lightgray',
     '&:hover': {
       cursor: 'pointer',
-      background: 'grey',
+      background: 'gray',
     },
   },
 })
 export const Pagination = ({
+  currentPage,
   productPerPage,
   totalProducts,
   paginate,
   paginateArrow,
 }) => {
-  const pageNumbers = []
   const classes = useStyles()
 
+  const pageNumbers = []
   for (let i = 1; i <= Math.ceil(totalProducts / productPerPage); i++) {
     pageNumbers.push(i)
   }
+
   return (
     <PaginationStyles>
-      <ArrowBackIos
-        onClick={() => paginateArrow('back')}
-        className={classes.root}
-        fontSize="large"
-      />
+      {currentPage > 1 && (
+        <ArrowBackIos
+          onClick={() => paginateArrow('back')}
+          className={classes.root}
+          fontSize="large"
+        />
+      )}
       {pageNumbers.map((number) => (
         <button
           key={number}
           onClick={() => paginate(number)}
-          className="page-button"
+          className={
+            currentPage === number ? 'active page-button' : 'page-button'
+          }
         >
           {number}
         </button>
       ))}
-      <ArrowForwardIos
-        onClick={() => paginateArrow('forward')}
-        className={classes.root}
-        fontSize="large"
-      />
+      {currentPage === pageNumbers.length ? null : (
+        <ArrowForwardIos
+          onClick={() => paginateArrow('forward')}
+          className={classes.root}
+          fontSize="large"
+        />
+      )}
     </PaginationStyles>
   )
 }
