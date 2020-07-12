@@ -1,10 +1,27 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import TextField from '@material-ui/core/TextField'
+import { withStyles } from '@material-ui/core/styles'
 
-const SearchInputStyles = styled('div')``
+const SearchInputStyles = styled('div')`
+  height: 50px;
+  margin: 1em;
+  margin-left: 0;
+`
+const styles = {
+  root: {
+    '& .Mui-focused': {
+      color: 'white',
+    },
+    background: '#333',
+    width: 400,
+  },
+  label: {
+    color: 'white',
+  },
+}
 
-export const SearchInput = ({ handleSearch }) => {
+const SearchInput = ({ handleSearch, classes }) => {
   const [searchQuery, setSearchQuery] = useState('')
   const [persistedSearchQuery, setPersistedSearchQuery] = useState('')
 
@@ -29,17 +46,14 @@ export const SearchInput = ({ handleSearch }) => {
     <SearchInputStyles>
       <form onSubmit={(e) => handleSearch(e, searchQuery)}>
         <TextField
-          id="outlined-full-width"
-          label="Search"
-          style={{ margin: 8 }}
-          placeholder={
-            persistedSearchQuery ? persistedSearchQuery : 'Search for product'
-          }
-          margin="normal"
+          className={classes.root}
           InputLabelProps={{
-            shrink: true,
+            classes: {
+              root: classes.label,
+            },
           }}
-          variant="outlined"
+          id="standard-basic"
+          label="I'm looking for"
           onChange={(e) => handleQueryChange(e)}
           value={searchQuery}
         />
@@ -47,3 +61,5 @@ export const SearchInput = ({ handleSearch }) => {
     </SearchInputStyles>
   )
 }
+
+export default withStyles(styles)(SearchInput)

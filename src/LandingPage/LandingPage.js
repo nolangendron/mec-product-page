@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react'
-import { SearchInput } from '../components/SearchInput'
+import { Header } from '../components/Header'
 import { ProductsList } from '../components/ProductsList'
 import { makeApiCall } from '../utils/apiCall'
 
@@ -18,7 +18,7 @@ export const LandingPage = () => {
 
   return (
     <Fragment>
-      <SearchInput handleSearch={handleSearch} />
+      <Header handleSearch={handleSearch} />
       <ProductsList products={products} />
     </Fragment>
   )
