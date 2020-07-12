@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import logo from '../images/mec-logo.svg.png'
 import SearchInput from './SearchInput'
+import { Link } from 'react-router-dom'
 
 const HeaderStyles = styled('header')`
   display: flex;
@@ -18,12 +19,17 @@ const HeaderStyles = styled('header')`
 
   .logo {
     width: 50px;
+    :hover {
+      cursor: pointer;
+    }
   }
 `
 export const Header = ({ searchQuery, handleQueryChange, handleSearch }) => {
   return (
     <HeaderStyles>
-      <img className="flex-item logo" src={logo} alt="MEC logo" />
+      <Link to="/">
+        <img className="flex-item logo" src={logo} alt="MEC logo" />
+      </Link>
       <SearchInput
         searchQuery={searchQuery}
         handleQueryChange={handleQueryChange}

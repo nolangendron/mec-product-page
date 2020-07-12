@@ -1,5 +1,11 @@
-import React, { Fragment } from 'react'
-import { Header, SearchDetails, ProductsList, Pagination } from '../components'
+import React, { useEffect, Fragment } from 'react'
+import {
+  Header,
+  SearchDetails,
+  ProductsList,
+  Pagination,
+  BreadCrumbsNav,
+} from '../components'
 
 export const ProductPage = ({
   searchQuery,
@@ -12,7 +18,12 @@ export const ProductPage = ({
   paginateArrow,
   currentPage,
   productsPerPage,
+  toggleFetchSuccess,
 }) => {
+  useEffect(() => {
+    toggleFetchSuccess()
+  }, [toggleFetchSuccess])
+
   return (
     <Fragment>
       <Header
@@ -20,6 +31,7 @@ export const ProductPage = ({
         handleQueryChange={handleQueryChange}
         handleSearch={handleSearch}
       />
+      <BreadCrumbsNav />
       <SearchDetails
         currentSearch={currentSearch}
         numberOfProducts={products.length}
