@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import bgImage from '../images/powder2.jpg'
+import bgImage from '../images/bgImage-2.jpg'
 import { SearchInput } from '../components'
 import { Redirect } from 'react-router-dom'
 
@@ -12,6 +12,7 @@ const LandingPageStyles = styled('div')`
     background: url(${bgImage}) no-repeat;
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     height: 50%;
   }
 
