@@ -34,6 +34,7 @@ export const LandingPage = ({
   handleQueryChange,
   handleSearch,
   fetchSuccess,
+  clearSearch,
 }) => {
   return (
     <LandingPageStyles>
@@ -46,6 +47,7 @@ export const LandingPage = ({
         searchQuery={searchQuery}
         handleQueryChange={handleQueryChange}
         handleSearch={handleSearch}
+        clearSearch={clearSearch}
       />
       {fetchSuccess && <Redirect push to={`/products`} />}
     </LandingPageStyles>

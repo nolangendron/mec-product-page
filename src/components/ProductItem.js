@@ -5,6 +5,7 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import Link from '@material-ui/core/Link'
+import { colors } from '../styles/colors'
 
 const useStyles = makeStyles({
   root: {
@@ -12,6 +13,13 @@ const useStyles = makeStyles({
     minWidth: 300,
     height: '25%',
     margin: '1em',
+    boxShadow: 'none',
+    border: `1px solid ${colors.backgroundLight}`,
+    transition: 'all .4s ease',
+    '&:hover': {
+      transform: 'translate3D(0,-1px,0) scale(1.15)',
+      transition: 'all .4s ease',
+    },
   },
   media: {
     height: 300,

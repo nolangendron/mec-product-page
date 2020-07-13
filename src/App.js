@@ -34,10 +34,15 @@ function App() {
       return
     } else {
       makeApiCall(searchQuery).then((results) => {
-        const data = results
-        const { products } = data
-        setProducts(products)
-        setCurrentPage(1)
+        console.log(results)
+        if (results.hasOwnProperty('products')) {
+          const data = results
+          const { products } = data
+          setProducts(products)
+          setCurrentPage(1)
+        } else {
+          return
+        }
       })
       setFetchSuccess(true)
     }
@@ -48,6 +53,10 @@ function App() {
     arrow === 'forward'
       ? setCurrentPage((prevState) => prevState + 1)
       : setCurrentPage((prevState) => prevState - 1)
+  }
+
+  const clearSearch = () => {
+    setSearchQuery('')
   }
 
   return (
@@ -66,6 +75,7 @@ function App() {
             currentPage={currentPage}
             productsPerPage={productsPerPage}
             toggleFetchSuccess={toggleFetchSuccess}
+            clearSearch={clearSearch}
           />
         </Route>
         <Route path="/" exact>
@@ -75,9 +85,10 @@ function App() {
             handleQueryChange={handleQueryChange}
             handleSearch={handleSearch}
             fetchSuccess={fetchSuccess}
+            clearSearch={clearSearch}
           />
         </Route>
-        <Route render={() => <h2>Not Found</h2>} />
+        <Route render={() => <p>Not Found</p>} />
       </Switch>
     </Router>
   )

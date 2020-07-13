@@ -26,6 +26,7 @@ export const ProductPage = ({
   currentPage,
   productsPerPage,
   toggleFetchSuccess,
+  clearSearch,
 }) => {
   useEffect(() => {
     toggleFetchSuccess()
@@ -37,6 +38,7 @@ export const ProductPage = ({
         searchQuery={searchQuery}
         handleQueryChange={handleQueryChange}
         handleSearch={handleSearch}
+        clearSearch={clearSearch}
       />
       <section className="product-list-container">
         <BreadCrumbsNav />

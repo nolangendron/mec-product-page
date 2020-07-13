@@ -3,11 +3,12 @@ import styled from '@emotion/styled'
 import logo from '../images/MEC_logo_2013.svg'
 import { SearchInput } from './SearchInput'
 import { Link } from 'react-router-dom'
+import { colors } from '../styles/colors'
 
 const HeaderStyles = styled('header')`
   display: flex;
   flex-direction: row;
-  background-color: #191919;
+  background-color: ${colors.backgroundDark};
   height: 80px;
   width: 100%;
   align-items: center;
@@ -24,7 +25,12 @@ const HeaderStyles = styled('header')`
     }
   }
 `
-export const Header = ({ searchQuery, handleQueryChange, handleSearch }) => {
+export const Header = ({
+  searchQuery,
+  handleQueryChange,
+  handleSearch,
+  clearSearch,
+}) => {
   return (
     <HeaderStyles>
       <Link to="/">
@@ -34,6 +40,7 @@ export const Header = ({ searchQuery, handleQueryChange, handleSearch }) => {
         searchQuery={searchQuery}
         handleQueryChange={handleQueryChange}
         handleSearch={handleSearch}
+        clearSearch={clearSearch}
       />
     </HeaderStyles>
   )
