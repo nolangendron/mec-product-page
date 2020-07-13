@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import logo from '../images/mec-logo.svg.png'
-import SearchInput from './SearchInput'
+import logo from '../images/MEC_logo_2013.svg'
+import { SearchInput } from './SearchInput'
 import { Link } from 'react-router-dom'
 
 const HeaderStyles = styled('header')`

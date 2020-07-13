@@ -10,8 +10,8 @@ export const SearchDetails = ({ currentSearch, numberOfProducts }) => {
     <SearchDetailsStyles>
       {numberOfProducts ? (
         <div>
-          <h4>{currentSearch}</h4>
-          <h4>{numberOfProducts} items</h4>
+          <h1>{currentSearch}</h1>
+          <p>{numberOfProducts} items</p>
         </div>
       ) : null}
     </SearchDetailsStyles>

@@ -29,15 +29,18 @@ function App() {
 
   const handleSearch = (e) => {
     e.preventDefault()
-    makeApiCall(searchQuery).then((results) => {
-      const data = results
-      const { products } = data
-      console.log(data)
+    setCurrentSearch(searchQuery)
+    if (searchQuery.length === 0) {
+      return
+    } else {
+      makeApiCall(searchQuery).then((results) => {
+        const data = results
+        const { products } = data
+        setProducts(products)
+        setCurrentPage(1)
+      })
       setFetchSuccess(true)
-      setProducts(products)
-      setCurrentPage(1)
-      setCurrentSearch(searchQuery)
-    })
+    }
   }
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -46,10 +49,11 @@ function App() {
       ? setCurrentPage((prevState) => prevState + 1)
       : setCurrentPage((prevState) => prevState - 1)
   }
+
   return (
     <Router>
       <Switch>
-        <Route path="/products">
+        <Route path={`/products`}>
           <ProductPage
             searchQuery={searchQuery}
             currentSearch={currentSearch}
@@ -66,6 +70,7 @@ function App() {
         </Route>
         <Route path="/" exact>
           <LandingPage
+            currentSearch={currentSearch}
             searchQuery={searchQuery}
             handleQueryChange={handleQueryChange}
             handleSearch={handleSearch}

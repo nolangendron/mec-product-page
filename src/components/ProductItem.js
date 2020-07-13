@@ -24,12 +24,11 @@ const useStyles = makeStyles({
 })
 
 export const ProductItem = ({ name, img, web_url }) => {
-  console.log(web_url)
   const classes = useStyles()
   return (
     <Card className={classes.root}>
       <Link
-        style={{ 'text-decoration': 'none', color: 'black' }}
+        style={{ textDecoration: 'none', color: 'black' }}
         href={web_url}
         target="_blank"
         rel="noopener"
@@ -37,7 +36,7 @@ export const ProductItem = ({ name, img, web_url }) => {
         <CardActionArea>
           <CardMedia className={classes.media} image={img} title={name} />
           <CardContent className={classes.content}>
-            <h3>{name}</h3>
+            <p>{name}</p>
           </CardContent>
         </CardActionArea>
       </Link>
