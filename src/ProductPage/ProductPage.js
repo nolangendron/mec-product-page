@@ -58,6 +58,7 @@ export const ProductPage = ({
   toggleRedirect,
 }) => {
   useEffect(() => {
+    // resets redirect state
     toggleRedirect()
   }, [toggleRedirect])
 

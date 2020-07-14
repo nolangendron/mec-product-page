@@ -59,6 +59,8 @@ export const Pagination = ({
   totalProducts,
 }) => {
   const classes = useStyles()
+
+  // calculates the number of page numbers required
   const pageNumbers = []
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i)

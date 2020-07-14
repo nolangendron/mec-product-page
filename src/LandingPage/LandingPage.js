@@ -40,7 +40,6 @@ const propTypes = {
 }
 
 export const LandingPage = ({
-  currentSearch,
   searchQuery,
   handleQueryChange,
   handleSearch,
