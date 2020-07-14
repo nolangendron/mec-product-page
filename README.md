@@ -1,4 +1,5 @@
 ## Nolan Gendron - MEC Product Page
+### Thank you and I look forward to chatting further!
 
 #### Created with create-react-app
 ### Instructions to run app: 
@@ -14,3 +15,4 @@
 ### Test
 #### - Jest, enzyme and react-testing-library
 #### - Unit test and snapshots
+ 
