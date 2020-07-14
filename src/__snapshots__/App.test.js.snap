@@ -7,9 +7,15 @@ exports[`should take a snapshot of App 1`] = `
   >
     <div
       class="hero-image"
-    />
+    >
+      <span
+        aria-label="tent at sunrise"
+        role="img"
+      />
+    </div>
     <div
       class="logo"
+      role="img"
     >
       <img
         alt="MEC logo"
@@ -17,7 +23,7 @@ exports[`should take a snapshot of App 1`] = `
       />
     </div>
     <div
-      class="css-j9tzvn"
+      class="css-1ecxpvi"
     >
       <form
         autocomplete="off"
