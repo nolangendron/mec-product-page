@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import bgImage from '../images/bgImage.jpg'
 import logo from '../images/MEC_logo_2013.svg'
@@ -29,6 +30,14 @@ const LandingPageStyles = styled('div')`
   }
 `
 
+const propTypes = {
+  searchQuery: PropTypes.string,
+  handleQueryChange: PropTypes.func,
+  handleSearch: PropTypes.func,
+  redirect: PropTypes.bool,
+  clearSearch: PropTypes.func,
+}
+
 export const LandingPage = ({
   searchQuery,
   handleQueryChange,
@@ -53,3 +62,5 @@ export const LandingPage = ({
     </LandingPageStyles>
   )
 }
+
+LandingPage.propTypes = propTypes

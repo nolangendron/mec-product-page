@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 const SearchDetailsStyles = styled('div')`
@@ -17,6 +18,11 @@ const SearchDetailsStyles = styled('div')`
   }
 `
 
+const propTypes = {
+  currentSearch: PropTypes.string,
+  numberOfProducts: PropTypes.number,
+}
+
 export const SearchDetails = ({ currentSearch, numberOfProducts }) => {
   return (
     <SearchDetailsStyles>
@@ -32,3 +38,5 @@ export const SearchDetails = ({ currentSearch, numberOfProducts }) => {
     </SearchDetailsStyles>
   )
 }
+
+SearchDetails.propTypes = propTypes

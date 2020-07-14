@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import {
   Header,
@@ -22,6 +23,24 @@ const ProductPageStyles = styled('div')`
     }
   }
 `
+
+const propTypes = {
+  searchQuery: PropTypes.string,
+  handleQueryChange: PropTypes.func,
+  currentSearch: PropTypes.string,
+  handleSearch: PropTypes.func,
+  products: PropTypes.arrayOf(PropTypes.object),
+  currentProducts: PropTypes.arrayOf(PropTypes.object),
+  paginate: PropTypes.func,
+  paginateArrow: PropTypes.func,
+  currentPage: PropTypes.number,
+  productsPerPage: PropTypes.number,
+  fetchSuccess: PropTypes.string,
+  clearSearch: PropTypes.func,
+  totalProducts: PropTypes.number,
+  toggleRedirect: PropTypes.func,
+}
+
 export const ProductPage = ({
   searchQuery,
   handleQueryChange,
@@ -73,3 +92,5 @@ export const ProductPage = ({
     </ProductPageStyles>
   )
 }
+
+ProductPage.propTypes = propTypes

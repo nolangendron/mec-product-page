@@ -3,7 +3,7 @@
 exports[`should take a snapshot of App 1`] = `
 <DocumentFragment>
   <div
-    class="css-7x3mqy"
+    class="css-1oa9mlu"
   >
     <div
       class="hero-image"
@@ -17,9 +17,11 @@ exports[`should take a snapshot of App 1`] = `
       />
     </div>
     <div
-      class="css-u7jara"
+      class="css-j9tzvn"
     >
-      <form>
+      <form
+        autocomplete="off"
+      >
         <label
           for="input"
         />
@@ -28,7 +30,7 @@ exports[`should take a snapshot of App 1`] = `
           class="cancel"
           id="input"
           placeholder="I'm looking for"
-          type="search"
+          type="text"
           value=""
         />
       </form>

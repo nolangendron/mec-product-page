@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { Search, Clear } from '@material-ui/icons'
 import { colors } from '../styles/colors'
@@ -10,7 +11,7 @@ const SearchInputStyles = styled('div')`
   min-width: 200px;
   justify-content: ${(props) => (props.landingPage ? 'center' : 'left')};
 
-  input[type='search'] {
+  input[type='text'] {
     -webkit-appearance: none;
     background-color: ${colors.backgroundMedium};
     color: ${colors.fontLight};
@@ -23,6 +24,7 @@ const SearchInputStyles = styled('div')`
     font-size: 1em;
     :focus {
       color: ${colors.fontLight};
+      outline: none;
     }
     ::placeholder {
       color: ${colors.fontLight};
@@ -46,8 +48,20 @@ const SearchInputStyles = styled('div')`
     :hover {
       cursor: pointer;
     }
+    :focus {
+      outline: none;
+    }
   }
 `
+
+const propTypes = {
+  searchQuery: PropTypes.string,
+  handleQueryChange: PropTypes.func,
+  handleSearch: PropTypes.func,
+  landingPage: PropTypes.bool,
+  clearSearch: PropTypes.func,
+}
+
 export const SearchInput = ({
   searchQuery,
   handleQueryChange,
@@ -60,11 +74,11 @@ export const SearchInput = ({
       searchQuery={searchQuery && searchQuery.length}
       landingPage={landingPage}
     >
-      <form onSubmit={handleSearch}>
+      <form autoComplete="off" onSubmit={handleSearch}>
         <label htmlFor="input"></label>
         <input
           id="input"
-          type="search"
+          type="text"
           aria-describedby="my-helper-text"
           onChange={handleQueryChange}
           value={searchQuery}
@@ -81,3 +95,5 @@ export const SearchInput = ({
     </SearchInputStyles>
   )
 }
+
+SearchInput.propTypes = propTypes

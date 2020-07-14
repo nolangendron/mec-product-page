@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { makeStyles } from '@material-ui/core/styles'
 import { ArrowForwardIos, ArrowBackIos } from '@material-ui/icons'
@@ -41,6 +42,15 @@ const useStyles = makeStyles({
     },
   },
 })
+
+const propTypes = {
+  currentPage: PropTypes.number,
+  paginateArrow: PropTypes.func,
+  paginate: PropTypes.func,
+  productsPerPage: PropTypes.number,
+  totalProducts: PropTypes.number,
+}
+
 export const Pagination = ({
   currentPage,
   paginateArrow,
@@ -84,3 +94,5 @@ export const Pagination = ({
     </PaginationStyles>
   )
 }
+
+Pagination.propTypes = propTypes

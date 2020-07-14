@@ -29,15 +29,3 @@ describe('form', () => {
     expect(handleSearchMock).toHaveBeenCalledWith(mockEvent)
   })
 })
-
-// it('calls onSubmit function when form is submitted', () => {
-//   const handleSearch = jest.fn()
-//   const wrapper = shallow(<SearchInput onSubmit={handleSearch} />)
-
-//   const form = wrapper.find('form')
-//   form.simulate('submit', { preventDefault: () => { } })
-
-//   expect(handleSearch).toHaveBeenCalledTimes(1)
-//   // expect(handleSearch).toHaveBeenCalledWith('bikes')
-
-// })

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
@@ -31,6 +32,12 @@ const useStyles = makeStyles({
   },
 })
 
+const propTypes = {
+  name: PropTypes.string,
+  img: PropTypes.string,
+  web_url: PropTypes.string,
+}
+
 export const ProductItem = ({ name, img, web_url }) => {
   const classes = useStyles()
   return (
@@ -51,3 +58,5 @@ export const ProductItem = ({ name, img, web_url }) => {
     </Card>
   )
 }
+
+ProductItem.propTypes = propTypes
