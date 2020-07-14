@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from '@emotion/styled'
 import { ProductItem } from './ProductItem'
+import { Pagination } from './Pagination'
 
 const Section = styled('section')`
   display: flex;
@@ -12,21 +13,39 @@ const Section = styled('section')`
     justify-content: center;
   }
 `
-export const ProductsList = ({ products }) => {
+export const ProductsList = ({
+  currentProducts,
+  currentPage,
+  paginateArrow,
+  paginate,
+  productsPerPage,
+  totalProducts,
+}) => {
   return (
-    <Section>
-      {products.map((product, index) => {
-        const { name, default_image_urls, web_url } = product
-        const { main_image_url } = default_image_urls
-        return (
-          <ProductItem
-            key={index}
-            name={name}
-            img={main_image_url}
-            web_url={web_url}
-          />
-        )
-      })}
-    </Section>
+    <Fragment>
+      <Section>
+        {currentProducts.map((product, index) => {
+          const { name, default_image_urls, web_url } = product
+          const { main_image_url } = default_image_urls
+          return (
+            <ProductItem
+              key={index}
+              name={name}
+              img={main_image_url}
+              web_url={web_url}
+            />
+          )
+        })}
+      </Section>
+      {currentProducts.length > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          paginateArrow={paginateArrow}
+          paginate={paginate}
+          productsPerPage={productsPerPage}
+          totalProducts={totalProducts}
+        />
+      )}
+    </Fragment>
   )
 }

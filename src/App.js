@@ -7,7 +7,8 @@ import { makeApiCall } from '../src/utils/apiCall'
 function App() {
   const [searchQuery, setSearchQuery] = useState('')
   const [currentSearch, setCurrentSearch] = useState('')
-  const [fetchSuccess, setFetchSuccess] = useState(false)
+  const [fetchSuccess, setFetchSuccess] = useState('')
+  const [redirect, setRedirect] = useState(false)
   const [products, setProducts] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [productsPerPage] = useState(12)
@@ -19,9 +20,10 @@ function App() {
     indexOfLastProduct
   )
 
-  const toggleFetchSuccess = () => {
-    setFetchSuccess(false)
+  const toggleRedirect = () => {
+    setRedirect(false)
   }
+
   const handleQueryChange = (e) => {
     const value = e.target.value
     setSearchQuery(value)
@@ -29,22 +31,23 @@ function App() {
 
   const handleSearch = (e) => {
     e.preventDefault()
-    setCurrentSearch(searchQuery)
     if (searchQuery.length === 0) {
       return
     } else {
+      setProducts([])
       makeApiCall(searchQuery).then((results) => {
-        console.log(results)
         if (results.hasOwnProperty('products')) {
+          setFetchSuccess('success')
           const data = results
           const { products } = data
           setProducts(products)
           setCurrentPage(1)
         } else {
-          return
+          setFetchSuccess('fail')
         }
       })
-      setFetchSuccess(true)
+      setCurrentSearch(searchQuery)
+      setRedirect(true)
     }
   }
 
@@ -74,8 +77,10 @@ function App() {
             paginateArrow={paginateArrow}
             currentPage={currentPage}
             productsPerPage={productsPerPage}
-            toggleFetchSuccess={toggleFetchSuccess}
+            fetchSuccess={fetchSuccess}
             clearSearch={clearSearch}
+            totalProducts={products.length}
+            toggleRedirect={toggleRedirect}
           />
         </Route>
         <Route path="/" exact>
@@ -84,7 +89,7 @@ function App() {
             searchQuery={searchQuery}
             handleQueryChange={handleQueryChange}
             handleSearch={handleSearch}
-            fetchSuccess={fetchSuccess}
+            redirect={redirect}
             clearSearch={clearSearch}
           />
         </Route>

@@ -33,7 +33,7 @@ export const LandingPage = ({
   searchQuery,
   handleQueryChange,
   handleSearch,
-  fetchSuccess,
+  redirect,
   clearSearch,
 }) => {
   return (
@@ -49,7 +49,7 @@ export const LandingPage = ({
         handleSearch={handleSearch}
         clearSearch={clearSearch}
       />
-      {fetchSuccess && <Redirect push to={`/products`} />}
+      {redirect && <Redirect push to={`/products`} />}
     </LandingPageStyles>
   )
 }

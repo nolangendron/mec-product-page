@@ -43,15 +43,14 @@ const useStyles = makeStyles({
 })
 export const Pagination = ({
   currentPage,
-  productPerPage,
-  totalProducts,
-  paginate,
   paginateArrow,
+  paginate,
+  productsPerPage,
+  totalProducts,
 }) => {
   const classes = useStyles()
-
   const pageNumbers = []
-  for (let i = 1; i <= Math.ceil(totalProducts / productPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i)
   }
 

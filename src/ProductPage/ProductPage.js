@@ -4,8 +4,8 @@ import {
   Header,
   SearchDetails,
   ProductsList,
-  Pagination,
   BreadCrumbsNav,
+  NoProducts,
 } from '../components'
 
 const ProductPageStyles = styled('div')`
@@ -25,13 +25,14 @@ export const ProductPage = ({
   paginateArrow,
   currentPage,
   productsPerPage,
-  toggleFetchSuccess,
+  fetchSuccess,
   clearSearch,
+  totalProducts,
+  toggleRedirect,
 }) => {
   useEffect(() => {
-    toggleFetchSuccess()
-  }, [toggleFetchSuccess])
-
+    toggleRedirect()
+  }, [toggleRedirect])
   return (
     <ProductPageStyles>
       <Header
@@ -46,15 +47,18 @@ export const ProductPage = ({
           currentSearch={currentSearch}
           numberOfProducts={products.length}
         />
-        <ProductsList products={currentProducts} />
-        {products.length > 0 && (
-          <Pagination
+        {fetchSuccess === 'success' && (
+          <ProductsList
+            currentProducts={currentProducts}
             currentPage={currentPage}
             paginateArrow={paginateArrow}
             paginate={paginate}
-            productPerPage={productsPerPage}
-            totalProducts={products.length}
+            productsPerPage={productsPerPage}
+            totalProducts={totalProducts}
           />
+        )}
+        {fetchSuccess === 'fail' && (
+          <NoProducts currentSearch={currentSearch} />
         )}
       </section>
     </ProductPageStyles>
