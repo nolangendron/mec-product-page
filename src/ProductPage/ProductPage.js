@@ -33,6 +33,7 @@ export const ProductPage = ({
   useEffect(() => {
     toggleRedirect()
   }, [toggleRedirect])
+
   return (
     <ProductPageStyles>
       <Header
@@ -45,7 +46,7 @@ export const ProductPage = ({
         <BreadCrumbsNav />
         <SearchDetails
           currentSearch={currentSearch}
-          numberOfProducts={products.length}
+          numberOfProducts={products && products.length}
         />
         {fetchSuccess === 'success' && (
           <ProductsList
