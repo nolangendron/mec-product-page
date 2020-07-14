@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom'
 import { colors } from '../styles/colors'
 
 const HeaderStyles = styled('header')`
+  position: fixed;
+  top: 0;
+  z-index: 100;
   display: flex;
   flex-direction: row;
   background-color: ${colors.backgroundDark};

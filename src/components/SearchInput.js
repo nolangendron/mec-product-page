@@ -6,8 +6,8 @@ import { colors } from '../styles/colors'
 const SearchInputStyles = styled('div')`
   display: flex;
   flex-direction: row;
-  width: 100%;
   margin: 1em;
+  min-width: 200px;
   justify-content: ${(props) => (props.landingPage ? 'center' : 'left')};
 
   input[type='search'] {
@@ -17,11 +17,10 @@ const SearchInputStyles = styled('div')`
     height: 50px;
     min-height: 40px;
     width: 30%;
-    min-width: 300px;
+    min-width: 190px;
     padding: 10px;
     border: none;
     font-size: 1em;
-
     :focus {
       color: ${colors.fontLight};
     }
