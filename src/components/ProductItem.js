@@ -5,6 +5,7 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import Link from '@material-ui/core/Link'
+import { colors } from '../styles/colors'
 
 const useStyles = makeStyles({
   root: {
@@ -12,6 +13,13 @@ const useStyles = makeStyles({
     minWidth: 300,
     height: '25%',
     margin: '1em',
+    boxShadow: 'none',
+    border: `1px solid ${colors.backgroundLight}`,
+    transition: 'all .4s ease',
+    '&:hover': {
+      transform: 'translate3D(0,-1px,0) scale(1.15)',
+      transition: 'all .4s ease',
+    },
   },
   media: {
     height: 300,
@@ -24,12 +32,11 @@ const useStyles = makeStyles({
 })
 
 export const ProductItem = ({ name, img, web_url }) => {
-  console.log(web_url)
   const classes = useStyles()
   return (
     <Card className={classes.root}>
       <Link
-        style={{ 'text-decoration': 'none', color: 'black' }}
+        style={{ textDecoration: 'none', color: 'black' }}
         href={web_url}
         target="_blank"
         rel="noopener"
@@ -37,7 +44,7 @@ export const ProductItem = ({ name, img, web_url }) => {
         <CardActionArea>
           <CardMedia className={classes.media} image={img} title={name} />
           <CardContent className={classes.content}>
-            <h3>{name}</h3>
+            <p>{name}</p>
           </CardContent>
         </CardActionArea>
       </Link>

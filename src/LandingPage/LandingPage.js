@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import bgImage from '../images/bgImage-2.jpg'
+import bgImage from '../images/bgImage.jpg'
+import logo from '../images/MEC_logo_2013.svg'
 import { SearchInput } from '../components'
 import { Redirect } from 'react-router-dom'
 
@@ -13,32 +14,42 @@ const LandingPageStyles = styled('div')`
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    height: 50%;
+    height: 70%;
   }
 
-  .search-container {
-    width: 100%;
+  .logo {
     text-align: center;
+    margin-top: -87.5px;
+  }
+
+  .logo img {
+    width: 175px;
+    height: 175px;
   }
 `
 
 export const LandingPage = ({
-  SearchQuery,
+  currentSearch,
+  searchQuery,
   handleQueryChange,
   handleSearch,
-  fetchSuccess,
+  redirect,
+  clearSearch,
 }) => {
   return (
     <LandingPageStyles>
       <div className="hero-image"></div>
-      <div className="search-container">
-        <SearchInput
-          SearchQuery={SearchQuery}
-          handleQueryChange={handleQueryChange}
-          handleSearch={handleSearch}
-        />
+      <div className="logo">
+        <img src={logo} alt="MEC logo" />
       </div>
-      {fetchSuccess && <Redirect push to="/products" />}
+      <SearchInput
+        landingPage
+        searchQuery={searchQuery}
+        handleQueryChange={handleQueryChange}
+        handleSearch={handleSearch}
+        clearSearch={clearSearch}
+      />
+      {redirect && <Redirect push to={`/products`} />}
     </LandingPageStyles>
   )
 }

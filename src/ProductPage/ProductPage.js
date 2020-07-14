@@ -1,12 +1,19 @@
-import React, { useEffect, Fragment } from 'react'
+import React, { useEffect } from 'react'
+import styled from '@emotion/styled'
 import {
   Header,
   SearchDetails,
   ProductsList,
-  Pagination,
   BreadCrumbsNav,
+  NoProducts,
 } from '../components'
 
+const ProductPageStyles = styled('div')`
+  .product-list-container {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+`
 export const ProductPage = ({
   searchQuery,
   handleQueryChange,
@@ -18,34 +25,42 @@ export const ProductPage = ({
   paginateArrow,
   currentPage,
   productsPerPage,
-  toggleFetchSuccess,
+  fetchSuccess,
+  clearSearch,
+  totalProducts,
+  toggleRedirect,
 }) => {
   useEffect(() => {
-    toggleFetchSuccess()
-  }, [toggleFetchSuccess])
-
+    toggleRedirect()
+  }, [toggleRedirect])
   return (
-    <Fragment>
+    <ProductPageStyles>
       <Header
         searchQuery={searchQuery}
         handleQueryChange={handleQueryChange}
         handleSearch={handleSearch}
+        clearSearch={clearSearch}
       />
-      <BreadCrumbsNav />
-      <SearchDetails
-        currentSearch={currentSearch}
-        numberOfProducts={products.length}
-      />
-      <ProductsList products={currentProducts} />
-      {products.length > 0 && (
-        <Pagination
-          currentPage={currentPage}
-          paginateArrow={paginateArrow}
-          paginate={paginate}
-          productPerPage={productsPerPage}
-          totalProducts={products.length}
+      <section className="product-list-container">
+        <BreadCrumbsNav />
+        <SearchDetails
+          currentSearch={currentSearch}
+          numberOfProducts={products.length}
         />
-      )}
-    </Fragment>
+        {fetchSuccess === 'success' && (
+          <ProductsList
+            currentProducts={currentProducts}
+            currentPage={currentPage}
+            paginateArrow={paginateArrow}
+            paginate={paginate}
+            productsPerPage={productsPerPage}
+            totalProducts={totalProducts}
+          />
+        )}
+        {fetchSuccess === 'fail' && (
+          <NoProducts currentSearch={currentSearch} />
+        )}
+      </section>
+    </ProductPageStyles>
   )
 }

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 
 export const BreadCrumbsNav = () => {
   return (
-    <Breadcrumbs style={{ 'margin-left': '1em' }}>
+    <Breadcrumbs style={{ marginLeft: '1em' }}>
       <Link to="/">
-        <h4>Home</h4>
+        <p>Home</p>
       </Link>
-      <h4>Products</h4>
+      <p>Products</p>
     </Breadcrumbs>
   )
 }
