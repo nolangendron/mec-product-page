@@ -36,8 +36,7 @@ const SearchInputStyles = styled('div')`
   }
 
   .clear-icon {
-    visibility: ${(props) =>
-      props.searchQuery.length > 0 ? 'visible' : 'hidden'};
+    visibility: ${(props) => (props.searchQuery > 0 ? 'visible' : 'hidden')};
   }
 
   .icon-button {
@@ -58,11 +57,14 @@ export const SearchInput = ({
   clearSearch,
 }) => {
   return (
-    <SearchInputStyles searchQuery={searchQuery} landingPage={landingPage}>
+    <SearchInputStyles
+      searchQuery={searchQuery && searchQuery.length}
+      landingPage={landingPage}
+    >
       <form onSubmit={handleSearch}>
-        <label htmlFor="my-input"></label>
+        <label htmlFor="input"></label>
         <input
-          id="my-input"
+          id="input"
           type="search"
           aria-describedby="my-helper-text"
           onChange={handleQueryChange}
