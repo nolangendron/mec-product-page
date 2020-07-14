@@ -11,9 +11,10 @@ const LandingPageStyles = styled('div')`
 
   .hero-image {
     background: url(${bgImage}) no-repeat;
-    background-position: center;
+    background-position: center center;
     background-size: cover;
     background-attachment: fixed;
+    width: 100vw;
     height: 70%;
   }
 
@@ -29,7 +30,6 @@ const LandingPageStyles = styled('div')`
 `
 
 export const LandingPage = ({
-  currentSearch,
   searchQuery,
   handleQueryChange,
   handleSearch,

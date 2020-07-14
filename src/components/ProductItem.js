@@ -22,8 +22,8 @@ const useStyles = makeStyles({
     },
   },
   media: {
-    height: 300,
-    width: 300,
+    height: 280,
+    width: 280,
     margin: 'auto',
   },
   content: {

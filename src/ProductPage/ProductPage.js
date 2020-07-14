@@ -10,8 +10,16 @@ import {
 
 const ProductPageStyles = styled('div')`
   .product-list-container {
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 80px;
+  }
+
+  @media screen and (min-width: 480px) {
+    .product-list-container {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
   }
 `
 export const ProductPage = ({
