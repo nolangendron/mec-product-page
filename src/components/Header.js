@@ -15,7 +15,7 @@ const HeaderStyles = styled('header')`
   background-color: ${colors.backgroundDark};
   height: 80px;
   width: 100%;
-  align-items: center;
+  align-content: center;
 
   .flex-item {
     height: 50px;

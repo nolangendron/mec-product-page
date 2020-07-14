@@ -46,10 +46,15 @@ export const ProductItem = ({ name, img, web_url }) => {
         style={{ textDecoration: 'none', color: 'black' }}
         href={web_url}
         target="_blank"
-        rel="noopener"
+        rel="noOpener"
       >
         <CardActionArea>
-          <CardMedia className={classes.media} image={img} title={name} />
+          <CardMedia
+            className={classes.media}
+            image={img}
+            title={name}
+            alt={`product image for ${name}`}
+          />
           <CardContent className={classes.content}>
             <p>{name}</p>
           </CardContent>

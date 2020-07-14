@@ -75,6 +75,7 @@ export const Pagination = ({
       )}
       {pageNumbers.map((number) => (
         <button
+          type="button"
           key={number}
           onClick={() => paginate(number)}
           className={

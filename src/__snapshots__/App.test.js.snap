@@ -22,13 +22,11 @@ exports[`should take a snapshot of App 1`] = `
       <form
         autocomplete="off"
       >
-        <label
-          for="input"
-        />
         <input
-          aria-describedby="my-helper-text"
+          aria-label="Search"
           class="cancel"
-          id="input"
+          id="search"
+          name="search"
           placeholder="I'm looking for"
           type="text"
           value=""
@@ -36,6 +34,7 @@ exports[`should take a snapshot of App 1`] = `
       </form>
       <button
         class="icon-button"
+        type="reset"
       >
         <svg
           aria-hidden="true"
@@ -51,6 +50,7 @@ exports[`should take a snapshot of App 1`] = `
       </button>
       <button
         class="icon-button"
+        type="submit"
       >
         <svg
           aria-hidden="true"

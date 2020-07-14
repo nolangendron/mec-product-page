@@ -15,7 +15,7 @@ const SearchInputStyles = styled('div')`
     -webkit-appearance: none;
     background-color: ${colors.backgroundMedium};
     color: ${colors.fontLight};
-    height: 50px;
+    height: 46px;
     min-height: 40px;
     width: 30%;
     min-width: 190px;
@@ -24,7 +24,6 @@ const SearchInputStyles = styled('div')`
     font-size: 1em;
     :focus {
       color: ${colors.fontLight};
-      outline: none;
     }
     ::placeholder {
       color: ${colors.fontLight};
@@ -41,15 +40,12 @@ const SearchInputStyles = styled('div')`
   }
 
   .icon-button {
-    height: 50px;
+    height: 46px;
     width: 40px;
     border: none;
     background-color: ${colors.backgroundMedium};
     :hover {
       cursor: pointer;
-    }
-    :focus {
-      outline: none;
     }
   }
 `
@@ -75,21 +71,21 @@ export const SearchInput = ({
       landingPage={landingPage}
     >
       <form autoComplete="off" onSubmit={handleSearch}>
-        <label htmlFor="input"></label>
         <input
-          id="input"
+          id="search"
+          name="search"
           type="text"
-          aria-describedby="my-helper-text"
+          aria-label="Search"
           onChange={handleQueryChange}
           value={searchQuery}
           placeholder="I'm looking for"
           className="cancel"
         />
       </form>
-      <button onClick={clearSearch} className="icon-button">
+      <button type="reset" onClick={clearSearch} className="icon-button">
         <Clear className="clear-icon" style={{ color: 'white' }} />
       </button>
-      <button onClick={handleSearch} className="icon-button">
+      <button type="submit" onClick={handleSearch} className="icon-button">
         <Search style={{ color: 'white' }} />
       </button>
     </SearchInputStyles>

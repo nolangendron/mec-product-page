@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^9.5.0"
+    "@testing-library/react": "^9.5.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1"
   }
 }

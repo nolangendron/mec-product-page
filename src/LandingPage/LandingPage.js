@@ -31,6 +31,7 @@ const LandingPageStyles = styled('div')`
 `
 
 const propTypes = {
+  currentSearch: PropTypes.string,
   searchQuery: PropTypes.string,
   handleQueryChange: PropTypes.func,
   handleSearch: PropTypes.func,
@@ -39,6 +40,7 @@ const propTypes = {
 }
 
 export const LandingPage = ({
+  currentSearch,
   searchQuery,
   handleQueryChange,
   handleSearch,
@@ -47,8 +49,10 @@ export const LandingPage = ({
 }) => {
   return (
     <LandingPageStyles>
-      <div className="hero-image"></div>
-      <div className="logo">
+      <div className="hero-image">
+        <span role="img" aria-label="tent at sunrise"></span>
+      </div>
+      <div role="img" className="logo">
         <img src={logo} alt="MEC logo" />
       </div>
       <SearchInput

@@ -16,10 +16,10 @@ const ProductPageStyles = styled('div')`
     margin-top: 80px;
   }
 
-  @media screen and (min-width: 480px) {
+  @media screen and (max-width: 480px) {
     .product-list-container {
-      margin-left: 10px;
-      margin-right: 10px;
+      margin-left: 20px;
+      margin-right: 20px;
     }
   }
 `

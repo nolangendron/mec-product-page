@@ -31,6 +31,7 @@ function App() {
 
   const handleSearch = (e) => {
     e.preventDefault()
+    setCurrentSearch('')
     if (searchQuery.length === 0) {
       return
     } else {
