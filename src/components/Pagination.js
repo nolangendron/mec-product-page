@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { makeStyles } from '@material-ui/core/styles'
 import { ArrowForwardIos, ArrowBackIos } from '@material-ui/icons'
@@ -41,6 +42,15 @@ const useStyles = makeStyles({
     },
   },
 })
+
+const propTypes = {
+  currentPage: PropTypes.number,
+  paginateArrow: PropTypes.func,
+  paginate: PropTypes.func,
+  productsPerPage: PropTypes.number,
+  totalProducts: PropTypes.number,
+}
+
 export const Pagination = ({
   currentPage,
   paginateArrow,
@@ -49,6 +59,8 @@ export const Pagination = ({
   totalProducts,
 }) => {
   const classes = useStyles()
+
+  // calculates the number of page numbers required
   const pageNumbers = []
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i)
@@ -65,6 +77,7 @@ export const Pagination = ({
       )}
       {pageNumbers.map((number) => (
         <button
+          type="button"
           key={number}
           onClick={() => paginate(number)}
           className={
@@ -84,3 +97,5 @@ export const Pagination = ({
     </PaginationStyles>
   )
 }
+
+Pagination.propTypes = propTypes

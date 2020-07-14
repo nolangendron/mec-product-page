@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import logo from '../images/MEC_logo_2013.svg'
 import { SearchInput } from './SearchInput'
@@ -14,7 +15,7 @@ const HeaderStyles = styled('header')`
   background-color: ${colors.backgroundDark};
   height: 80px;
   width: 100%;
-  align-items: center;
+  align-content: center;
 
   .flex-item {
     height: 50px;
@@ -28,6 +29,14 @@ const HeaderStyles = styled('header')`
     }
   }
 `
+
+const propTypes = {
+  searchQuery: PropTypes.string,
+  handleQueryChange: PropTypes.func,
+  handleSearch: PropTypes.func,
+  clearSearch: PropTypes.func,
+}
+
 export const Header = ({
   searchQuery,
   handleQueryChange,
@@ -48,3 +57,5 @@ export const Header = ({
     </HeaderStyles>
   )
 }
+
+Header.prototypes = propTypes

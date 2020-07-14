@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
@@ -31,6 +32,12 @@ const useStyles = makeStyles({
   },
 })
 
+const propTypes = {
+  name: PropTypes.string,
+  img: PropTypes.string,
+  web_url: PropTypes.string,
+}
+
 export const ProductItem = ({ name, img, web_url }) => {
   const classes = useStyles()
   return (
@@ -39,10 +46,15 @@ export const ProductItem = ({ name, img, web_url }) => {
         style={{ textDecoration: 'none', color: 'black' }}
         href={web_url}
         target="_blank"
-        rel="noopener"
+        rel="noOpener"
       >
         <CardActionArea>
-          <CardMedia className={classes.media} image={img} title={name} />
+          <CardMedia
+            className={classes.media}
+            image={img}
+            title={name}
+            alt={`product image for ${name}`}
+          />
           <CardContent className={classes.content}>
             <p>{name}</p>
           </CardContent>
@@ -51,3 +63,5 @@ export const ProductItem = ({ name, img, web_url }) => {
     </Card>
   )
 }
+
+ProductItem.propTypes = propTypes

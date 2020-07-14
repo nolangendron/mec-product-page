@@ -1,4 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  currentSearch: PropTypes.string,
+}
 
 export const NoProducts = ({ currentSearch }) => {
   return (
@@ -10,3 +15,5 @@ export const NoProducts = ({ currentSearch }) => {
     </div>
   )
 }
+
+NoProducts.propTypes = propTypes

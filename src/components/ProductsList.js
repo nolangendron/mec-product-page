@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { ProductItem } from './ProductItem'
 import { Pagination } from './Pagination'
@@ -13,6 +14,16 @@ const Section = styled('section')`
     justify-content: center;
   }
 `
+
+const propTypes = {
+  currentProducts: PropTypes.arrayOf(PropTypes.object),
+  currentPage: PropTypes.number,
+  paginateArrow: PropTypes.func,
+  paginate: PropTypes.func,
+  productsPerPage: PropTypes.number,
+  totalProducts: PropTypes.number,
+}
+
 export const ProductsList = ({
   currentProducts,
   currentPage,
@@ -49,3 +60,5 @@ export const ProductsList = ({
     </Fragment>
   )
 }
+
+ProductsList.propTypes = propTypes

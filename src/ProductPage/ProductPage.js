@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import {
   Header,
@@ -15,13 +16,31 @@ const ProductPageStyles = styled('div')`
     margin-top: 80px;
   }
 
-  @media screen and (min-width: 480px) {
+  @media screen and (max-width: 480px) {
     .product-list-container {
-      margin-left: 10px;
-      margin-right: 10px;
+      margin-left: 20px;
+      margin-right: 20px;
     }
   }
 `
+
+const propTypes = {
+  searchQuery: PropTypes.string,
+  handleQueryChange: PropTypes.func,
+  currentSearch: PropTypes.string,
+  handleSearch: PropTypes.func,
+  products: PropTypes.arrayOf(PropTypes.object),
+  currentProducts: PropTypes.arrayOf(PropTypes.object),
+  paginate: PropTypes.func,
+  paginateArrow: PropTypes.func,
+  currentPage: PropTypes.number,
+  productsPerPage: PropTypes.number,
+  fetchSuccess: PropTypes.string,
+  clearSearch: PropTypes.func,
+  totalProducts: PropTypes.number,
+  toggleRedirect: PropTypes.func,
+}
+
 export const ProductPage = ({
   searchQuery,
   handleQueryChange,
@@ -39,6 +58,7 @@ export const ProductPage = ({
   toggleRedirect,
 }) => {
   useEffect(() => {
+    // resets redirect state
     toggleRedirect()
   }, [toggleRedirect])
 
@@ -73,3 +93,5 @@ export const ProductPage = ({
     </ProductPageStyles>
   )
 }
+
+ProductPage.propTypes = propTypes

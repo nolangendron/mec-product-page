@@ -13,6 +13,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1)
   const [productsPerPage] = useState(12)
 
+  // To calculate and slice the products for the pagination
   const indexOfLastProduct = currentPage * productsPerPage
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage
   const currentProducts = products.slice(
@@ -20,17 +21,29 @@ function App() {
     indexOfLastProduct
   )
 
+  // To handle pagination when arrows or page numbers clicked
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  const paginateArrow = (arrow) => {
+    arrow === 'forward'
+      ? setCurrentPage((prevState) => prevState + 1)
+      : setCurrentPage((prevState) => prevState - 1)
+  }
+
+  // To indicate that page is ready for redirect
   const toggleRedirect = () => {
     setRedirect(false)
   }
 
+  // To handle onChange in search input
   const handleQueryChange = (e) => {
     const value = e.target.value
     setSearchQuery(value)
   }
 
+  // to fire search request when onSubmit is fired
   const handleSearch = (e) => {
     e.preventDefault()
+    setCurrentSearch('')
     if (searchQuery.length === 0) {
       return
     } else {
@@ -51,13 +64,7 @@ function App() {
     }
   }
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
-  const paginateArrow = (arrow) => {
-    arrow === 'forward'
-      ? setCurrentPage((prevState) => prevState + 1)
-      : setCurrentPage((prevState) => prevState - 1)
-  }
-
+  // to clear search input when X is clicked
   const clearSearch = () => {
     setSearchQuery('')
   }
